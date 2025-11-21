@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ArticleController;
 
 
 
@@ -19,3 +20,8 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
 });
+
+
+
+/* Rotta per creare un articolo */
+Route::get('/create/article', [ArticleController::class, 'createArticle'])->name('article.create');

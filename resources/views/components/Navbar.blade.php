@@ -14,17 +14,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Left side links -->
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Chi Siamo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Servizi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Contatti</a>
-                </li>
+
+                <!-- Only visible to authenticated users -->
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('article.create') }}">Crea Articolo</a>
+                    </li>
+                @endauth
+
             </ul>
 
+            
             <!-- Right side authentication -->
             <ul class="navbar-nav">
                 @auth

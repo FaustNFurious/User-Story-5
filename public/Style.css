@@ -1,18 +1,40 @@
-/* Header Home Page */
-
-/* Layout flexibile con navbar fixed */
 body {
-    padding-top: 70px; /* Spazio per la navbar fixed */
-        background-image: url('/Media/Fireworks.jpeg');
+    /* Background image */
+    background-image: url('/Media/Fireworks.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    
+    /* Spazio per navbar fixed-top */
+    padding-top: 4rem;
+    
+    /* Stop scroll oltre il contenuto - trackpad incluso */
+    overscroll-behavior: none;
+    overscroll-behavior-y: contain;
+    overflow-x: hidden;
 }
 
-/* Il main prende tutto lo spazio disponibile */
-main {
-    min-height: calc(100vh - 70px); /* Altezza minima meno navbar */
+/* Limita container principale per evitare scroll extra */
+body > * {
+    overscroll-behavior: contain;
 }
+
+/* Stop scroll definitivo - anche per trackpad Mac */
+html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 100%;
+    overscroll-behavior-y: none;
+}
+
+/* Spazio per il main - stacca footer dal contenuto */
+main {
+    margin-bottom: 5rem; /* Spazio prima del footer */
+}
+
+/* Il footer usa mt-auto di Bootstrap per posizionamento automatico */
+
 
 /* Stile per il dropdown del logout */
 .dropdown-item form button {
@@ -27,4 +49,11 @@ main {
 
 .dropdown-item:hover {
     text-decoration: underline;
+}
+
+
+/* Placeholder per select - stylamo il select quando è vuoto */
+select.form-select:invalid {
+    color: gray;
+    font-style: italic;
 }
